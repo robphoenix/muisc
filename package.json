@@ -1,5 +1,8 @@
 {
   "version": "0.1.0",
+  "name": "muisc",
+  "author": "Rob Phoenix <rob@robphoenix.com>",
+  "module": "dist/muisc.esm.js",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -15,27 +18,62 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
+    "format:ci": "prettier --list-different \"./src/**/*.{tsx,ts}\"",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
   },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "react-keyed-flatten-children": "^1.3.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@size-limit/preset-small-lib": "^4.9.1",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "husky": "^4.3.7",
+    "lint-staged": "^10.5.3",
+    "pinst": "^2.1.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "size-limit": "^4.9.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
+  },
   "peerDependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@material-ui/core": "^5.0.0-alpha.22",
     "react": ">=16"
+  },
+  "lint-staged": {
+    "./src/*.{ts,tsx}": [
+      "yarn format",
+      "yarn lint",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "prettier": {
     "printWidth": 80,
-    "semi": true,
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "muisc",
-  "author": "Rob Phoenix",
-  "module": "dist/muisc.esm.js",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "size-limit": [
     {
       "path": "dist/muisc.cjs.production.min.js",
@@ -45,17 +83,5 @@
       "path": "dist/muisc.esm.js",
       "limit": "10 KB"
     }
-  ],
-  "devDependencies": {
-    "@size-limit/preset-small-lib": "^4.9.1",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "husky": "^4.3.7",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "size-limit": "^4.9.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.1.0",
-    "typescript": "^4.1.3"
-  }
+  ]
 }
