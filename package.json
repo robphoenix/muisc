@@ -1,5 +1,5 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "muisc",
   "author": "Rob Phoenix <rob@robphoenix.com>",
   "module": "dist/muisc.esm.js",
