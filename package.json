@@ -57,9 +57,13 @@
     "react": ">=16"
   },
   "lint-staged": {
-    "./src/*.{ts,tsx}": [
-      "yarn format",
-      "yarn lint",
+    "./{src,docs}/*.{ts,tsx,md,mdx}": [
+      "yarn format"
+    ],
+    "./{src,docs}/*.{ts,tsx}": [
+      "yarn lint"
+    ],
+    "./{src,docs}/*.{ts,tsx,md,mdx}": [
       "git add"
     ]
   },
