@@ -4,14 +4,6 @@ import Divider, { DividerProps } from '@material-ui/core/Divider'
 import assert from 'assert'
 import flattenChildren from 'react-keyed-flatten-children'
 
-type HorizontalAlign = `left` | `right` | `center` | `none`
-interface VStackProps extends BoxProps {
-  spacing?: number
-  align?: HorizontalAlign
-  dividers?: boolean
-  dividerProps?: Omit<DividerProps, 'orientation'>
-}
-
 // TODO: these could prob be hooks?
 export const getNegativeMargin = (spacing?: number | Array<number>) => {
   if (spacing === null || spacing === undefined) return
@@ -56,8 +48,16 @@ export const getVerticalAlignment = (
   return align.map((a: VerticalAlign) => alignments[a])
 }
 
+type HorizontalAlign = `left` | `right` | `center` | `none`
+interface VStackProps extends Omit<BoxProps, 'sx'> {
+  spacing?: number
+  align?: HorizontalAlign
+  dividers?: boolean
+  dividerProps?: Omit<DividerProps, 'orientation'>
+}
+
 // TODO: probably need to add React.forwardRef
-const VStack: React.FC<VStackProps> = props => {
+const VStack: React.FC<VStackProps> = (props) => {
   const {
     children,
     spacing = 0,
@@ -67,6 +67,7 @@ const VStack: React.FC<VStackProps> = props => {
     dividerProps = {},
     ...rest
   } = props
+  Object.keys(dividerProps).length > 0 && console.log({ dividerProps })
 
   const validStackComponents = ['div', 'ol', 'ul'] as Array<
     React.ElementType<any>
@@ -131,7 +132,7 @@ interface HStackProps extends BoxProps {
   wrap?: boolean
 }
 
-const HStack: React.FC<HStackProps> = props => {
+const HStack: React.FC<HStackProps> = (props) => {
   const {
     children,
     spacing = 0,

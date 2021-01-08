@@ -18,14 +18,22 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
+    "format": "prettier --write \"./{src,docs}/**/*.{ts,tsx,md,mdx}\"",
     "format:ci": "prettier --list-different \"./src/**/*.{tsx,ts}\"",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve",
+    "docz:clean": "rimraf ./docz/.cache"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@material-ui/core": "^5.0.0-alpha.22",
     "assert": "^2.0.0",
+    "docz": "^2.3.1",
     "react-keyed-flatten-children": "^1.3.0"
   },
   "devDependencies": {
@@ -39,15 +47,13 @@
     "pinst": "^2.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "rimraf": "^3.0.2",
     "size-limit": "^4.9.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.1.4",
-    "@emotion/styled": "^11.0.0",
-    "@material-ui/core": "^5.0.0-alpha.22",
     "react": ">=16"
   },
   "lint-staged": {
@@ -67,7 +73,8 @@
     "printWidth": 80,
     "semi": false,
     "singleQuote": true,
-    "trailingComma": "es5"
+    "trailingComma": "es5",
+    "arrowParens": "always"
   },
   "commitlint": {
     "extends": [
