@@ -1,0 +1,122 @@
+---
+name: HStack
+route: /hstack
+---
+
+import Box from '@material-ui/core/Box'
+import { VStack, HStack } from '../src'
+import { Wrapper, Item } from './components.tsx'
+
+# VStack
+
+<Wrapper>
+<HStack spacing={2}>
+  <Item sx={{width: 20}}  />
+  <Item sx={{width: 80}}  />
+  <Item sx={{width:40}}  />
+  <Item sx={{width:150}}  />
+  <Item sx={{width:120}}  />
+  <Item sx={{width:60}}  />
+  <Item sx={{width:40}}  />
+  <Item sx={{width:180}}  />
+  <Item sx={{width:100}}  />
+  <Item sx={{width:60}}  />
+  <Item sx={{width:120}}  />
+  <Item sx={{width:40}}  />
+</HStack>
+</Wrapper>
+
+## Spacing
+
+<Wrapper>
+<HStack spacing={2}>
+  <Item sx={{width: 48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+</HStack>
+</Wrapper>
+
+## Wrapping
+
+<Wrapper>
+<HStack spacing={2} wrap>
+  <Item sx={{width: 48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width: 48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+  <Item sx={{width:48}}  />
+</HStack>
+</Wrapper>
+
+## Vertical Alignment
+
+<Wrapper>
+  <VStack spacing={4} dividers>
+    <HStack spacing={2} align="center" alignY='top'>
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48, height: 128}} />
+      <Item sx={{ width: 48}} />
+    </HStack>
+    <HStack spacing={2} align="center" alignY='center'>
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48, height: 128}} />
+      <Item sx={{ width: 48}} />
+    </HStack>
+    <HStack spacing={2} align="center" alignY='bottom'>
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48, height: 128}} />
+      <Item sx={{ width: 48}} />
+    </HStack>
+  </VStack>
+</Wrapper>
+
+## Horizontal Alignment
+
+<Wrapper>
+  <VStack spacing={4} dividers>
+    <HStack spacing={2} align="left">
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48}} />
+    </HStack>
+    <HStack spacing={2} align="center">
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48}} />
+    </HStack>
+    <HStack spacing={2} align="right">
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48}} />
+      <Item sx={{ width: 48}} />
+    </HStack>
+  </VStack>
+</Wrapper>
+

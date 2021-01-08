@@ -26,7 +26,7 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve",
-    "docz:clean": "rimraf ./docz/.cache"
+    "docz:clean": "rimraf \".docz/.cache\""
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",

@@ -9,7 +9,7 @@ const Item: React.FC<Boxprops> = (props) => {
   const { sx, ...rest } = props
   return (
     <Box
-      sx={{ height: '2rem', backgroundColor: 'secondary.light', ...sx }}
+      sx={{ height: 48, backgroundColor: 'secondary.light', ...sx }}
       {...rest}
     />
   )
