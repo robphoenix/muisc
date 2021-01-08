@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "muisc",
   "author": "Rob Phoenix <rob@robphoenix.com>",
   "module": "dist/muisc.esm.js",
@@ -26,7 +26,9 @@
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve",
-    "docz:clean": "rimraf \".docz/.cache\""
+    "bump:patch": "release patch",
+    "bump:minor": "release minor",
+    "bump:major": "release major"
   },
   "dependencies": {
     "@emotion/react": "^11.1.4",
@@ -47,6 +49,7 @@
     "pinst": "^2.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "release": "^6.3.0",
     "rimraf": "^3.0.2",
     "size-limit": "^4.9.1",
     "tsdx": "^0.14.1",
@@ -58,13 +61,10 @@
   },
   "lint-staged": {
     "./{src,docs}/*.{ts,tsx,md,mdx}": [
-      "yarn format"
+      "git add"
     ],
     "./{src,docs}/*.{ts,tsx}": [
       "yarn lint"
-    ],
-    "./{src,docs}/*.{ts,tsx,md,mdx}": [
-      "git add"
     ]
   },
   "husky": {
